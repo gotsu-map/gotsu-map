@@ -46,19 +46,6 @@
   .page-desc { font-family: var(--serif-ja); font-size: 0.95rem; line-height: 2.3; color: var(--ink-muted); }
   .page-rule { border: none; border-top: 1px solid var(--paper-dark); margin: 0 3rem; }
 
-  .filter-bar {
-    max-width: 1200px; margin: 3rem auto; padding: 0 3rem;
-    display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap;
-  }
-  .filter-label { font-size: 0.68rem; letter-spacing: 0.3em; color: var(--ink-faint); text-transform: uppercase; margin-right: 0.5rem; }
-  .filter-tag {
-    padding: 0.4rem 1rem; border: 1px solid var(--paper-dark);
-    font-size: 0.7rem; letter-spacing: 0.15em; color: var(--ink-muted);
-    cursor: pointer; transition: all 0.2s; background: transparent;
-    font-family: var(--sans); font-weight: 300;
-  }
-  .filter-tag.active, .filter-tag:hover { background: var(--kawara); border-color: var(--kawara); color: var(--paper); }
-
   .cards-wrap { max-width: 1200px; margin: 0 auto; padding: 0 3rem 8rem; }
   .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
 
@@ -93,23 +80,6 @@
   }
   .card-link:hover { background: var(--kawara); border-color: var(--kawara); color: var(--paper); }
 
-  /* おすすめの店 */
-  .shop-section { max-width: 1200px; margin: 0 auto; padding: 0 3rem 8rem; border-top: 1px solid var(--paper-dark); padding-top: 4rem; }
-  .shop-heading { font-family: var(--serif-ja); font-size: 1.6rem; font-weight: 600; letter-spacing: 0.06em; margin-bottom: 0.4rem; }
-  .shop-sub { font-family: var(--serif-en); font-size: 0.85rem; font-style: italic; color: var(--ink-faint); letter-spacing: 0.2em; margin-bottom: 2.5rem; }
-  .shop-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-  .shop-card {
-    background: var(--paper); padding: 1.8rem; cursor: pointer;
-    opacity: 0; transform: translateY(15px); transition: opacity 0.5s ease, transform 0.5s ease, background 0.2s;
-    border: 1px solid var(--paper-dark);
-  }
-  .shop-card.visible { opacity: 1; transform: translateY(0); }
-  .shop-card:hover { background: var(--paper-dark); }
-  .shop-type { font-size: 0.6rem; letter-spacing: 0.3em; color: var(--kawara); text-transform: uppercase; margin-bottom: 0.5rem; }
-  .shop-name { font-family: var(--serif-ja); font-size: 1.05rem; font-weight: 600; margin-bottom: 0.5rem; letter-spacing: 0.04em; }
-  .shop-info { font-size: 0.72rem; color: var(--ink-muted); line-height: 1.8; }
-  .shop-tag { display: inline-block; font-size: 0.6rem; padding: 0.15rem 0.5rem; background: var(--kawara-pale); color: var(--kawara); margin: 0.4rem 0.2rem 0 0; }
-
   footer { background: var(--ink); color: var(--paper); padding: 3rem; text-align: center; }
   footer p { font-size: 0.72rem; color: rgba(245,240,232,0.4); letter-spacing: 0.15em; }
   .back-link { display: inline-block; margin-bottom: 1.5rem; font-size: 0.72rem; letter-spacing: 0.25em; color: rgba(245,240,232,0.6); text-decoration: none; border-bottom: 1px solid rgba(245,240,232,0.2); padding-bottom: 2px; }
@@ -132,9 +102,6 @@
     .page-title-ja { font-size: clamp(2.5rem, 10vw, 4rem); }
     .page-desc { font-size: 0.85rem; line-height: 2; }
     .page-rule { margin: 0 1.2rem; }
-
-    .filter-bar { padding: 0 1.2rem; margin: 1.5rem auto; gap: 0.5rem; }
-    .filter-tag { padding: 0.3rem 0.7rem; font-size: 0.65rem; }
 
     .cards-wrap { padding: 0 1.2rem 2rem; }
     .cards-grid { grid-template-columns: 1fr; gap: 1px; }
@@ -179,13 +146,6 @@
 </div>
 <hr class="page-rule">
 
-<div class="filter-bar">
-  <span class="filter-label">カテゴリ</span>
-  <button class="filter-tag active" data-cat="all">すべて</button>
-  <button class="filter-tag" data-cat="sea">海の幸</button>
-  <button class="filter-tag" data-cat="mountain">山の幸</button>
-  <button class="filter-tag" data-cat="drink">お酒・飲み物</button>
-</div>
 
 <div class="cards-wrap">
   <div class="cards-grid">
@@ -193,7 +153,6 @@
     <div class="food-card" data-cat="mountain">
       <img class="food-img" src="https://images.unsplash.com/photo-1547592166-23ac45744acd?w=600&q=80" alt="まる姫ポーク">
       <div class="food-body">
-        <p class="food-label">Brand Pork</p>
         <p class="food-name">まる姫ポーク</p>
         <p class="food-desc">江津市が誇るブランド豚。2018年の味噌カツ丼コンテスト優勝の実績。やさか味噌とのコンビが絶品で、市内のとんかつ店で食べられる。</p>
         <hr class="food-divider">
@@ -209,7 +168,6 @@
     <div class="food-card" data-cat="sea">
       <img class="food-img" src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=600&q=80" alt="日本海海鮮">
       <div class="food-body">
-        <p class="food-label">Sea Food</p>
         <p class="food-name">日本海の海鮮丼</p>
         <p class="food-desc">浜田港や江津近海で水揚げされた新鮮な魚介を豪快に盛り合わせ。のどぐろ・バトウ・あなごなど石見ならではの幸が揃う。</p>
         <hr class="food-divider">
@@ -225,7 +183,6 @@
     <div class="food-card" data-cat="sweets">
       <img class="food-img" src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600&q=80" alt="敬川饅頭">
       <div class="food-body">
-        <p class="food-label">Local Sweets</p>
         <p class="food-name">敬川饅頭</p>
         <p class="food-desc">江津に生まれ育った人なら誰もが知る昔ながらの素朴な饅頭。程よい甘みと薄皮が特徴。帰省のたびに買い求める地元の定番土産。</p>
         <hr class="food-divider">
@@ -241,7 +198,6 @@
     <div class="food-card" data-cat="sea">
       <img class="food-img" src="https://images.unsplash.com/photo-1535448033526-c0e85c9e6968?w=600&q=80" alt="江の川の天然鮎">
       <div class="food-body">
-        <p class="food-label">River Food</p>
         <p class="food-name">江の川の天然鮎</p>
         <p class="food-desc">中国地方最大の大河・江の川が育てた天然鮎。塩焼きにすると皮はパリッと中はふっくら。川の香りを楽しめる夏だけの贅沢な味。</p>
         <hr class="food-divider">
@@ -257,7 +213,6 @@
     <div class="food-card" data-cat="mountain">
       <img class="food-img" src="https://images.unsplash.com/photo-1563245372-f21724e3856d?w=600&q=80" alt="桜江の棚田米">
       <div class="food-body">
-        <p class="food-label">Rice</p>
         <p class="food-name">桜江の棚田米</p>
         <p class="food-desc">江の川流域の昼夜の寒暖差が生む、もっちりとした甘みのある棚田米。地元農家が大切に育てた一粒一粒が、江津の食卓を支えている。</p>
         <hr class="food-divider">
@@ -273,7 +228,6 @@
     <div class="food-card" data-cat="mountain">
       <img class="food-img" src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=600&q=80" alt="石見焼の器">
       <div class="food-body">
-        <p class="food-label">Craft × Food</p>
         <p class="food-name">石見焼の器で楽しむ料理</p>
         <p class="food-desc">伝統工芸・石見焼の器で提供される地元料理。一期一会の風合いを持つ手作りの器が、江津の食をより豊かに彩る。市内の料亭・カフェで体験できる。</p>
         <hr class="food-divider">
@@ -289,7 +243,6 @@
     <div class="food-card" data-cat="sea">
       <img class="food-img" src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=80" alt="石見和牛">
       <div class="food-body">
-        <p class="food-label">Brand Beef</p>
         <p class="food-name">石見和牛</p>
         <p class="food-desc">島根県西部・石見地方で育てられたブランド和牛。しまね海洋館アクアス隣のレストランでは石見和牛カルビ丼が人気メニューのひとつ。</p>
         <hr class="food-divider">
@@ -305,7 +258,6 @@
     <div class="food-card" data-cat="mountain">
       <img class="food-img" src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80" alt="有福温泉の地元食材">
       <div class="food-body">
-        <p class="food-label">Local Cuisine</p>
         <p class="food-name">有福温泉のイタリアン</p>
         <p class="food-desc">有福温泉街の中心に位置するレストランが提供する本格イタリアン。浜田港の新鮮な日本海の幸と、地元で獲れる旬の食材をふんだんに使用。</p>
         <hr class="food-divider">
@@ -321,7 +273,6 @@
     <div class="food-card" data-cat="drink">
       <img class="food-img" src="https://images.unsplash.com/photo-1534482421-64566f976cfa?w=600&q=80" alt="石州の地酒">
       <div class="food-body">
-        <p class="food-label">Local Sake</p>
         <p class="food-name">石州の地酒</p>
         <p class="food-desc">石見の清冽な伏流水と島根県産米で醸した辛口の地酒。日本海の幸との相性は抜群。道の駅サンピコごうつなどで購入できる。</p>
         <hr class="food-divider">
@@ -337,49 +288,6 @@
   </div>
 </div>
 
-<!-- おすすめの店 -->
-<div class="shop-section">
-  <h2 class="shop-heading">おすすめの店</h2>
-  <p class="shop-sub">Recommended Restaurants & Shops</p>
-  <div class="shop-grid">
-    <div class="shop-card">
-      <p class="shop-type">Sea Food</p>
-      <p class="shop-name">漁師の台所 まつもと</p>
-      <p class="shop-info">📍 江津市江津町<br>🕐 11:00〜14:00 / 17:00〜21:00</p>
-      <p><span class="shop-tag">のどぐろ</span><span class="shop-tag">鮮魚定食</span><span class="shop-tag">要予約</span></p>
-    </div>
-    <div class="shop-card">
-      <p class="shop-type">Local Cuisine</p>
-      <p class="shop-name">郷土料理 いわみ庵</p>
-      <p class="shop-info">📍 江津市桜江町<br>🕐 11:30〜14:30（火曜定休）</p>
-      <p><span class="shop-tag">石見ポーク</span><span class="shop-tag">棚田米</span><span class="shop-tag">里芋煮</span></p>
-    </div>
-    <div class="shop-card">
-      <p class="shop-type">Café</p>
-      <p class="shop-name">紙と珈琲</p>
-      <p class="shop-info">📍 江津市江津町<br>🕐 10:00〜18:00（月曜定休）</p>
-      <p><span class="shop-tag">和紙コーヒー</span><span class="shop-tag">地酒</span><span class="shop-tag">和紙雑貨</span></p>
-    </div>
-    <div class="shop-card">
-      <p class="shop-type">Farmers Market</p>
-      <p class="shop-name">道の駅 ことまち</p>
-      <p class="shop-info">📍 江津市嘉久志町<br>🕐 9:00〜18:00（年中無休）</p>
-      <p><span class="shop-tag">棚田米</span><span class="shop-tag">野菜直売</span><span class="shop-tag">特産品</span></p>
-    </div>
-    <div class="shop-card">
-      <p class="shop-type">Sake Brewery</p>
-      <p class="shop-name">石州酒造 江津蔵</p>
-      <p class="shop-info">📍 江津市江津町<br>🕐 見学 10:00〜16:00（要予約）</p>
-      <p><span class="shop-tag">地酒</span><span class="shop-tag">蔵元見学</span><span class="shop-tag">試飲</span></p>
-    </div>
-    <div class="shop-card">
-      <p class="shop-type">River Dining</p>
-      <p class="shop-name">川床 えのかわ</p>
-      <p class="shop-info">📍 江津市桜江町川戸<br>🕐 7〜9月のみ営業</p>
-      <p><span class="shop-tag">天然鮎</span><span class="shop-tag">川床席</span><span class="shop-tag">夏限定</span></p>
-    </div>
-  </div>
-</div>
 
 <footer>
   <a href="index.html" class="back-link">← 江津トップへ戻る</a>

@@ -45,19 +45,6 @@
   .page-desc { font-family: var(--serif-ja); font-size: 0.95rem; line-height: 2.3; color: var(--ink-muted); }
   .page-rule { border: none; border-top: 1px solid var(--paper-dark); margin: 0 3rem; }
 
-  .filter-bar {
-    max-width: 1200px; margin: 3rem auto; padding: 0 3rem;
-    display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap;
-  }
-  .filter-label { font-size: 0.68rem; letter-spacing: 0.3em; color: var(--ink-faint); text-transform: uppercase; margin-right: 0.5rem; }
-  .filter-tag {
-    padding: 0.4rem 1rem; border: 1px solid var(--paper-dark);
-    font-size: 0.7rem; letter-spacing: 0.15em; color: var(--ink-muted);
-    cursor: pointer; transition: all 0.2s; background: transparent;
-    font-family: var(--sans); font-weight: 300;
-  }
-  .filter-tag.active, .filter-tag:hover { background: var(--kawara); border-color: var(--kawara); color: var(--paper); }
-
   .cards-wrap { max-width: 1200px; margin: 0 auto; padding: 0 3rem 8rem; }
   .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
 
@@ -117,10 +104,6 @@
     .page-desc { font-size: 0.85rem; line-height: 2; }
     .page-rule { margin: 0 1.2rem; }
 
-    .filter-bar { padding: 0 1.2rem; margin: 1.5rem auto; gap: 0.5rem; }
-    .filter-label { font-size: 0.62rem; }
-    .filter-tag { padding: 0.3rem 0.7rem; font-size: 0.65rem; }
-
     .cards-wrap { padding: 0 1.2rem 3rem; }
     .cards-grid { grid-template-columns: 1fr; gap: 1px; }
 
@@ -161,15 +144,6 @@
 </div>
 <hr class="page-rule">
 
-<div class="filter-bar">
-  <span class="filter-label">カテゴリ</span>
-  <button class="filter-tag active" data-cat="all">すべて</button>
-  <button class="filter-tag" data-cat="water">水辺</button>
-  <button class="filter-tag" data-cat="craft">工芸</button>
-  <button class="filter-tag" data-cat="nature">自然</button>
-  <button class="filter-tag" data-cat="food">食・農</button>
-  <button class="filter-tag" data-cat="culture">文化</button>
-</div>
 
 <div class="cards-wrap">
   <div class="cards-grid">
@@ -177,7 +151,6 @@
     <div class="exp-card" data-cat="culture">
       <img class="exp-img" src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600&q=80" alt="石見神楽">
       <div class="exp-body">
-        <div class="exp-tag-row"><span class="exp-tag">Culture</span><span class="exp-diff">観覧無料</span></div>
         <p class="exp-name">石見神楽 定期公演（はっしー広場）</p>
         <p class="exp-desc">しまね海洋館アクアス隣のはっしー広場にて4〜11月の毎週日曜・祝日に屋外公演を開催。笛・太鼓の囃子にのせて神々の物語が舞う。入場無料。</p>
         <div class="exp-meta">
@@ -195,7 +168,6 @@
     <div class="exp-card" data-cat="culture">
       <img class="exp-img" src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600&q=80" alt="石見神楽 パレット">
       <div class="exp-body">
-        <div class="exp-tag-row"><span class="exp-tag">Culture</span><span class="exp-diff">月1回</span></div>
         <p class="exp-name">石見神楽 定期公演（パレットごうつ）</p>
         <p class="exp-desc">江津駅前パレットごうつにて毎月第2日曜日に開催（10・11月除く）。1団体による約2時間半の公演。令和7年4月より新形式でリニューアル。</p>
         <div class="exp-meta">
@@ -212,7 +184,6 @@
     <div class="exp-card" data-cat="craft">
       <img class="exp-img" src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=600&q=80" alt="石見焼陶芸体験">
       <div class="exp-body">
-        <div class="exp-tag-row"><span class="exp-tag">Craft</span><span class="exp-diff">全年齢</span></div>
         <p class="exp-name">石見焼 陶芸体験</p>
         <p class="exp-desc">江戸時代から続く伝統工芸・石見焼。江津市内の窯元で都野津の良質な粘土を使った手びねり体験が楽しめる。世界にひとつの器をお持ち帰り。</p>
         <div class="exp-meta">
@@ -229,7 +200,6 @@
     <div class="exp-card" data-cat="nature">
       <img class="exp-img" src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600&q=80" alt="有福温泉">
       <div class="exp-body">
-        <div class="exp-tag-row"><span class="exp-tag">Onsen</span><span class="exp-diff">日帰りOK</span></div>
         <p class="exp-name">有福温泉 日帰り入浴</p>
         <p class="exp-desc">1370年以上の歴史を誇る美肌の湯。御前湯・さつき湯・やよい湯の3つの公衆浴場が楽しめる。単純アルカリ泉で美白効果抜群。</p>
         <div class="exp-meta">
@@ -246,7 +216,6 @@
     <div class="exp-card" data-cat="water">
       <img class="exp-img" src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=800&q=80" alt="江の川カヤック">
       <div class="exp-body">
-        <div class="exp-tag-row"><span class="exp-tag">Water Activity</span><span class="exp-diff">初心者OK</span></div>
         <p class="exp-name">江の川カヤック体験</p>
         <p class="exp-desc">中国地方最大の大河・江の川を、ガイドと一緒にのんびり下る体験。水源から194キロを旅してきた大河の流れを肌で感じる。</p>
         <div class="exp-meta">
@@ -263,7 +232,6 @@
     <div class="exp-card" data-cat="nature">
       <img class="exp-img" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80" alt="波子海岸">
       <div class="exp-body">
-        <div class="exp-tag-row"><span class="exp-tag">Nature</span><span class="exp-diff">通年</span></div>
         <p class="exp-name">波子海岸・黒松海水浴場</p>
         <p class="exp-desc">アクアス隣に広がる日本海の海岸。夏は海水浴でにぎわい、夕暮れ時には山陰らしい美しい海岸線が広がる。静かなビーチで心を解放。</p>
         <div class="exp-meta">
@@ -280,7 +248,6 @@
     <div class="exp-card" data-cat="craft">
       <img class="exp-img" src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80" alt="石見焼 舞乃座">
       <div class="exp-body">
-        <div class="exp-tag-row"><span class="exp-tag">Culture</span><span class="exp-diff">要予約</span></div>
         <p class="exp-name">石見神楽 舞乃座（有料公演）</p>
         <p class="exp-desc">江津市後地町にある石見神楽専用劇場「舞乃座」。第1・3日曜日は¥2,000、第2・4金曜日は¥1,000で臨場感あふれる公演が楽しめる。</p>
         <div class="exp-meta">
@@ -297,7 +264,6 @@
     <div class="exp-card" data-cat="nature">
       <img class="exp-img" src="https://images.unsplash.com/photo-1503220317375-aaad61436b1b?w=600&q=80" alt="岩瀧寺の滝">
       <div class="exp-body">
-        <div class="exp-tag-row"><span class="exp-tag">Nature</span><span class="exp-diff">散策</span></div>
         <p class="exp-name">岩瀧寺の滝 散策</p>
         <p class="exp-desc">江津市指定文化財・岩瀧寺の滝。他ではなかなか見られない岩肌を斜めに流れる珍しい滝。駐車場から平坦な道を歩いてアクセスできる。</p>
         <div class="exp-meta">
@@ -314,7 +280,6 @@
     <div class="exp-card" data-cat="culture">
       <img class="exp-img" src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=600&q=80" alt="江津本町 甍街道">
       <div class="exp-body">
-        <div class="exp-tag-row"><span class="exp-tag">Sightseeing</span><span class="exp-diff">散策</span></div>
         <p class="exp-name">江津本町 甍街道散策</p>
         <p class="exp-desc">江戸時代に北前船の寄港地として栄えた江津本町。商家の家屋が今も残る「甍街道」を歩き、石州瓦の赤い屋根が連なる往時の面影を辿る。</p>
         <div class="exp-meta">
