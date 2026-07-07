@@ -1,2 +1,7 @@
+title: 江津マップ
+
 plugins:
   - jekyll-sitemap
+
+url: https://gotsu-map.github.io
+baseurl: /gotsu-map
