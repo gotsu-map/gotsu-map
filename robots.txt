@@ -1,0 +1,5 @@
+User-agent: *
+
+Allow: /
+
+Sitemap: https://gotsu-map.github.io/gotsu-map/sitemap.xml
