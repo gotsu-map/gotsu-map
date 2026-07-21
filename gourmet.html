@@ -57,7 +57,7 @@
   .food-card.visible { opacity: 1; transform: translateY(0); }
   
 
-  .food-img { width: 100%; height: 200px; object-fit: cover; display: block; filter: sepia(8%) saturate(95%); transition: transform 0.5s; }
+  .food-img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; filter: sepia(8%) saturate(95%); transition: transform 0.5s; }
   .food-card:hover .food-img { transform: scale(1.04); }
 
   .food-body { padding: 1.5rem; }
@@ -105,7 +105,7 @@
 
     .cards-wrap { padding: 0 1.2rem 2rem; }
     .cards-grid { grid-template-columns: 1fr; gap: 1px; }
-    .food-img { height: 180px; }
+    /* .food-img keeps square aspect-ratio on mobile too */
     .food-card-body { padding: 1.2rem; }
     .food-name { font-size: 1rem; }
     .food-desc { font-size: 0.75rem; }
@@ -154,8 +154,8 @@
   <div class="nav-right">
     <ul class="nav-links">
       <li><a href="experience.html" data-ja="体験" data-en="Experience">体験</a></li>
-      <li><a href="people.html" data-ja="人" data-en="People">人</a></li>
       <li><a href="gourmet.html" class="active" data-ja="グルメ" data-en="Gourmet">グルメ</a></li>
+      <li><a href="accommodation.html" data-ja="宿泊" data-en="Stay">宿泊</a></li>
       <li><a href="index.html#events" data-ja="イベント" data-en="Events">イベント</a></li>
     </ul>
     <div class="lang-switch">

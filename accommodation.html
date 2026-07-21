@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-ja="宿泊 — 江津 GOTSU" data-en="Stay — Gotsu">宿泊 — 江津 GOTSU</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #1a1812; --ink-muted: #5a5347; --ink-faint: #9a9088;
+    --paper: #f5f0e8; --paper-warm: #ede6d6; --paper-dark: #d6cdb8;
+    --kawara: #9b3220; --kawara-pale: #edd8cc;
+    --sans: 'Noto Sans JP', sans-serif;
+    --serif-ja: 'Shippori Mincho', serif;
+    --serif-en: 'Cormorant Garamond', serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--paper-warm); color: var(--ink); font-family: var(--sans); font-weight: 300; line-height: 1.8; overflow-x: hidden; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 3rem;
+    background: rgba(237,230,214,0.93); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--paper-dark);
+  }
+  .nav-logo { font-family: var(--serif-ja); font-size: 1.4rem; font-weight: 600; letter-spacing: 0.15em; color: var(--ink); text-decoration: none; }
+  .nav-logo span { font-family: var(--serif-en); font-size: 0.65rem; font-weight: 300; letter-spacing: 0.4em; display: block; color: var(--ink-faint); text-transform: uppercase; margin-top: -2px; }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { font-size: 0.78rem; letter-spacing: 0.2em; color: var(--ink-muted); text-decoration: none; font-weight: 400; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--kawara); }
+
+  .page-hero {
+    padding: 10rem 3rem 5rem; max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end;
+  }
+  .breadcrumb { font-size: 0.68rem; letter-spacing: 0.35em; color: var(--ink-faint); text-transform: uppercase; margin-bottom: 1.5rem; }
+  .breadcrumb a { color: var(--ink-faint); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--kawara); }
+  .page-title-ja { font-family: var(--serif-ja); font-size: clamp(3.5rem, 6vw, 6rem); font-weight: 700; letter-spacing: 0.06em; line-height: 1; }
+  .page-title-en { font-family: var(--serif-en); font-size: 1rem; font-style: italic; color: var(--ink-faint); letter-spacing: 0.3em; margin-top: 0.8rem; }
+  .page-desc { font-family: var(--serif-ja); font-size: 0.95rem; line-height: 2.3; color: var(--ink-muted); }
+  .page-rule { border: none; border-top: 1px solid var(--paper-dark); margin: 0 3rem; }
+
+  .cards-wrap { max-width: 1200px; margin: 0 auto; padding: 0 3rem 8rem; }
+  .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+
+  .stay-card {
+    background: var(--paper); overflow: hidden;
+  }
+  .stay-img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; filter: sepia(8%) saturate(95%); transition: transform 0.5s; }
+  .stay-card:hover .stay-img { transform: scale(1.04); }
+  .stay-body { padding: 1.5rem; }
+  .stay-name { font-family: var(--serif-ja); font-size: 1.1rem; font-weight: 600; letter-spacing: 0.04em; margin-bottom: 0.5rem; line-height: 1.4; }
+  .stay-desc { font-size: 0.78rem; color: var(--ink-muted); line-height: 1.8; font-weight: 300; }
+
+  .stay-placeholder {
+    margin-top: 1rem; padding: 5rem 2rem;
+    border: 1px dashed var(--paper-dark);
+    text-align: center;
+  }
+  .stay-placeholder p { font-size: 0.9rem; letter-spacing: 0.03em; color: var(--ink-muted); font-weight: 300; }
+  .stay-placeholder p + p { margin-top: 0.6rem; font-size: 0.75rem; color: var(--ink-faint); }
+
+  .card-links { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 1rem; padding-top: 0.8rem; border-top: 1px solid var(--paper-dark); }
+  .card-link {
+    display: inline-flex; align-items: center; gap: 0.3rem;
+    font-size: 0.62rem; letter-spacing: 0.15em; padding: 0.3rem 0.7rem;
+    border: 1px solid var(--paper-dark); color: var(--ink-muted);
+    text-decoration: none; font-family: var(--sans); font-weight: 400;
+    transition: all 0.2s;
+  }
+  .card-link:hover { background: var(--kawara); border-color: var(--kawara); color: var(--paper); }
+
+  footer { background: var(--ink); color: var(--paper); padding: 3rem; text-align: center; }
+  footer p { font-size: 0.72rem; color: rgba(245,240,232,0.4); letter-spacing: 0.15em; }
+  .back-link { display: inline-block; margin-bottom: 1.5rem; font-size: 0.72rem; letter-spacing: 0.25em; color: rgba(245,240,232,0.6); text-decoration: none; border-bottom: 1px solid rgba(245,240,232,0.2); padding-bottom: 2px; }
+  .back-link:hover { color: var(--paper); border-color: var(--paper); }
+
+  @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+  .page-hero > * { animation: fadeUp 0.7s ease forwards; opacity: 0; }
+  .page-hero > *:nth-child(1) { animation-delay: 0.1s; }
+  .page-hero > *:nth-child(2) { animation-delay: 0.3s; }
+
+  @media (max-width: 768px) {
+    nav { padding: 0.9rem 1.2rem; }
+    .nav-logo { font-size: 1.1rem; }
+    .nav-logo span { font-size: 0.55rem; }
+    .nav-links { gap: 0.8rem; }
+    .nav-links a { font-size: 0.65rem; letter-spacing: 0.08em; }
+
+    .page-hero { grid-template-columns: 1fr; padding: 6rem 1.2rem 2.5rem; gap: 1.5rem; }
+    .page-title-ja { font-size: clamp(2.5rem, 10vw, 4rem); }
+    .page-desc { font-size: 0.85rem; line-height: 2; }
+    .page-rule { margin: 0 1.2rem; }
+
+    .cards-wrap { padding: 0 1.2rem 3rem; }
+    .cards-grid { grid-template-columns: 1fr; gap: 1px; }
+    .stay-placeholder { padding: 3rem 1.2rem; }
+  }
+  @media (max-width: 480px) {
+    .nav-links a { font-size: 0.6rem; }
+    .nav-links { gap: 0.6rem; }
+  }
+
+  /* === 言語切替ボタン === */
+  .nav-right { display: flex; align-items: center; gap: 2rem; }
+  .lang-switch { display: flex; gap: 0.3rem; border-left: 1px solid var(--paper-dark); padding-left: 1.4rem; }
+  .lang-btn {
+    font-family: var(--serif-en);
+    font-size: 0.78rem;
+    background: transparent;
+    border: 1px solid var(--paper-dark);
+    color: var(--ink-faint);
+    padding: 0.3rem 0.7rem;
+    cursor: pointer;
+    letter-spacing: 0.12em;
+    transition: all 0.2s;
+    font-weight: 500;
+  }
+  .lang-btn:hover { color: var(--ink); border-color: var(--ink-faint); }
+  .lang-btn.active { background: var(--kawara); color: var(--paper); border-color: var(--kawara); }
+  @media (max-width: 768px) {
+    .nav-right { gap: 1rem; }
+    .lang-switch { padding-left: 0.7rem; gap: 0.2rem; }
+    .lang-btn { font-size: 0.7rem; padding: 0.25rem 0.55rem; }
+  }
+
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><span data-ja="江津" data-en="Gotsu">江津</span><span>Gotsu, Shimane</span></a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="experience.html" data-ja="体験" data-en="Experience">体験</a></li>
+      <li><a href="gourmet.html" data-ja="グルメ" data-en="Gourmet">グルメ</a></li>
+      <li><a href="accommodation.html" class="active" data-ja="宿泊" data-en="Stay">宿泊</a></li>
+      <li><a href="index.html#events" data-ja="イベント" data-en="Events">イベント</a></li>
+    </ul>
+    <div class="lang-switch">
+      <button type="button" class="lang-btn active" data-lang="ja">JA</button>
+      <button type="button" class="lang-btn" data-lang="en">EN</button>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div>
+    <p class="breadcrumb"><a href="index.html" data-ja="江津トップ" data-en="Home">江津トップ</a> &nbsp;/&nbsp; <span data-ja="宿泊" data-en="Stay">宿泊</span></p>
+    <h1 class="page-title-ja" data-ja="宿泊" data-en="Stay">宿泊</h1>
+    <p class="page-title-en">Places to stay in Gotsu</p>
+  </div>
+  <p class="page-desc" data-ja="江津市内の宿・ゲストハウス・キャンプ場などの情報をまとめて紹介するページです。現在準備中で、順次情報を追加していきます。" data-en="A page introducing inns, guesthouses, and campgrounds in Gotsu. Currently in preparation — listings will be added soon.">江津市内の宿・ゲストハウス・キャンプ場などの情報をまとめて紹介するページです。現在準備中で、順次情報を追加していきます。</p>
+</div>
+<hr class="page-rule">
+
+<div class="cards-wrap">
+  <div class="stay-placeholder">
+    <p data-ja="準備中です。近日、江津市内の宿泊施設情報を掲載予定です。" data-en="Coming soon. Accommodation listings in Gotsu will be added here.">準備中です。近日、江津市内の宿泊施設情報を掲載予定です。</p>
+    <p data-ja="(掲載をご希望の宿泊施設の方はお問い合わせください)" data-en="(Accommodation owners: please contact us to be listed.)">(掲載をご希望の宿泊施設の方はお問い合わせください)</p>
+  </div>
+</div>
+
+<footer>
+  <a href="index.html" class="back-link" data-ja="← 江津トップへ戻る" data-en="← Back to Home">← 江津トップへ戻る</a>
+</footer>
+
+<script>
+  /* === 言語切替の仕組み === */
+  function applyLanguage(lang) {
+    localStorage.setItem('gotsu_lang', lang);
+    document.documentElement.lang = lang;
+    document.documentElement.setAttribute('data-lang', lang);
+    document.querySelectorAll('[data-ja][data-en]').forEach(el => {
+      const txt = el.getAttribute('data-' + lang);
+      if (txt === null) return;
+      if (el.tagName === 'TITLE') {
+        document.title = txt;
+      } else {
+        el.textContent = txt;
+      }
+    });
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+    document.dispatchEvent(new CustomEvent('langchange', { detail: { lang } }));
+  }
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => applyLanguage(btn.dataset.lang));
+    });
+    applyLanguage(localStorage.getItem('gotsu_lang') || 'ja');
+  });
+</script>
+</body>
+</html>
